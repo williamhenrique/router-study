@@ -4,9 +4,11 @@ import { MailModule } from './mail/mail.module';
 import { Observable } from 'rxjs/internal/Observable';
 import { of } from 'rxjs';
 import { delay } from 'rxjs/operators';
+import { AuthGuard } from './auth/auth.guard';
+import { AuthModule } from './auth/auth.module';
 
 const ROUTES: Routes = [
-  {path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
+  {path: 'dashboard', canLoad: [AuthGuard], loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
   data: {preload: true}
 },
   // {path: '', loadChildren: () => import('./mail/mail.module').then(m => m.MailModule)},
@@ -21,7 +23,7 @@ export class CustomPreLoad implements PreloadingStrategy{
 }
 
 @NgModule({
-  imports: [ MailModule, RouterModule.forRoot(ROUTES, {preloadingStrategy: CustomPreLoad}),],
+  imports: [ AuthModule, MailModule, RouterModule.forRoot(ROUTES, {preloadingStrategy: CustomPreLoad}),],
   exports: [RouterModule],
   providers: [CustomPreLoad]
 })

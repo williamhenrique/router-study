@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MailModule } from './mail/mail.module';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { MailModule } from './mail/mail.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MailModule
+    MailModule,
+    AuthModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
