@@ -27,7 +27,7 @@ export const ROUTES: Routes = [
       {
         path: 'message/:id',
         component: MailViewComponent,
-        canDeactivate: [MailViewGuard],
+        // canDeactivate: [MailViewGuard],
         outlet: 'pane',
         resolve: {
           message: MailViewResolver

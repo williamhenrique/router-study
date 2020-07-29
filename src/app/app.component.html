@@ -2,18 +2,21 @@
   <header>
   </header>
   <div class="app__content">
-    <nav>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a
+      class="navbar-brand"
       [routerLink]="['/mail', { outlets: { primary: 'folder/inbox', pane: null } }]"
       routerLinkActive="active">
         Inbox
       </a>
       <a
+      class="navbar-brand"
       [routerLink]="['/mail', { outlets: { primary: 'folder/trash', pane: null } }]"
       routerLinkActive="active">
         Trash
       </a>
       <a
+      class="navbar-brand"
         [routerLink]="['/dashboard']"
         routerLinkActive="active">
         Dashboard
@@ -22,3 +25,4 @@
     <router-outlet></router-outlet>
   </div>
 </div>
+
